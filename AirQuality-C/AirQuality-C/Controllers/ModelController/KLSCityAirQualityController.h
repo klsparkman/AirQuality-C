@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class KLSCityAirQualityModel;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,7 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(void)fetchSupportedCitiesInState:(NSString *)state country:(NSString *)country completion:(void (^) (NSArray<NSString *> *_Nullable))completion;
 
-+(void)fetchDataForCity:(NSString *)city state:(NSString *)state country:(NSString *)country completion:(void (^) (NSArray<NSString *> *_Nullable))completion;
++(void)fetchDataForCity:(NSString *)city
+                  state:(NSString *)state
+                country:(NSString *)country
+             completion:(void (^) (KLSCityAirQualityModel *_Nullable))completion;
 
 @end
 

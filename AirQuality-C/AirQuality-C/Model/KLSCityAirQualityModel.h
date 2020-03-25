@@ -20,7 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, readonly) KLSWeather *weather;
 @property (nonatomic, copy, readonly) KLSPollution *pollution;
 
--(instancetype)initWithCity:(NSString *)city state:(NSString *)state country:(NSString *)country weather:(KLSWeather *)weather pollution:(KLSPollution *)pollution;
+-(instancetype)initWithCity:(NSString *)city
+                      state:(NSString *)state
+                    country:(NSString *)country
+                    weather:(KLSWeather *)weather
+                  pollution:(KLSPollution *)pollution;
+
+@end
+
+@interface KLSCityAirQualityModel (JSONConvertable)
 
 -(instancetype)initWithDictionary:(NSDictionary<NSString *, id> *)dictionary;
 

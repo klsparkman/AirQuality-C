@@ -18,6 +18,10 @@
 		35F0A6E2242BFF2900E90912 /* KLSWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E1242BFF2900E90912 /* KLSWeather.m */; };
 		35F0A6E5242C010300E90912 /* KLSPollution.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E4242C010300E90912 /* KLSPollution.m */; };
 		35F0A6E8242C0BB800E90912 /* KLSCityAirQualityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E7242C0BB800E90912 /* KLSCityAirQualityController.m */; };
+		35F0A6EB242C121600E90912 /* CountriesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6EA242C121600E90912 /* CountriesListViewController.swift */; };
+		35F0A6ED242C138300E90912 /* StatesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6EC242C138300E90912 /* StatesListViewController.swift */; };
+		35F0A6EF242C13E800E90912 /* CitiesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6EE242C13E800E90912 /* CitiesListViewController.swift */; };
+		35F0A6F1242C193300E90912 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6F0242C193300E90912 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +45,11 @@
 		35F0A6E4242C010300E90912 /* KLSPollution.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSPollution.m; sourceTree = "<group>"; };
 		35F0A6E6242C0BB800E90912 /* KLSCityAirQualityController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLSCityAirQualityController.h; sourceTree = "<group>"; };
 		35F0A6E7242C0BB800E90912 /* KLSCityAirQualityController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSCityAirQualityController.m; sourceTree = "<group>"; };
+		35F0A6E9242C121600E90912 /* AirQuality-C-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirQuality-C-Bridging-Header.h"; sourceTree = "<group>"; };
+		35F0A6EA242C121600E90912 /* CountriesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesListViewController.swift; sourceTree = "<group>"; };
+		35F0A6EC242C138300E90912 /* StatesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatesListViewController.swift; sourceTree = "<group>"; };
+		35F0A6EE242C13E800E90912 /* CitiesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesListViewController.swift; sourceTree = "<group>"; };
+		35F0A6F0242C193300E90912 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +141,11 @@
 		35F0A6DC242BFE3800E90912 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				35F0A6EA242C121600E90912 /* CountriesListViewController.swift */,
+				35F0A6E9242C121600E90912 /* AirQuality-C-Bridging-Header.h */,
+				35F0A6EC242C138300E90912 /* StatesListViewController.swift */,
+				35F0A6EE242C13E800E90912 /* CitiesListViewController.swift */,
+				35F0A6F0242C193300E90912 /* DetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -168,6 +182,7 @@
 				TargetAttributes = {
 					35F0A6B8242BEB9400E90912 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -210,9 +225,13 @@
 				35F0A6D9242BED2900E90912 /* KLSHelperInfo.m in Sources */,
 				35F0A6BE242BEB9400E90912 /* AppDelegate.m in Sources */,
 				35F0A6CF242BEB9700E90912 /* main.m in Sources */,
+				35F0A6F1242C193300E90912 /* DetailViewController.swift in Sources */,
 				35F0A6E2242BFF2900E90912 /* KLSWeather.m in Sources */,
+				35F0A6EB242C121600E90912 /* CountriesListViewController.swift in Sources */,
 				35F0A6E8242C0BB800E90912 /* KLSCityAirQualityController.m in Sources */,
+				35F0A6ED242C138300E90912 /* StatesListViewController.swift in Sources */,
 				35F0A6C1242BEB9400E90912 /* SceneDelegate.m in Sources */,
+				35F0A6EF242C13E800E90912 /* CitiesListViewController.swift in Sources */,
 				35F0A6DF242BFE6D00E90912 /* KLSCityAirQualityModel.m in Sources */,
 				35F0A6E5242C010300E90912 /* KLSPollution.m in Sources */,
 			);
@@ -354,6 +373,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "AirQuality-C/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -362,6 +382,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DMA.AirQuality-C";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AirQuality-C/Controllers/ViewController/AirQuality-C-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -370,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "AirQuality-C/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -378,6 +402,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DMA.AirQuality-C";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AirQuality-C/Controllers/ViewController/AirQuality-C-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
