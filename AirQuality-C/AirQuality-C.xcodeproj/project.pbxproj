@@ -17,6 +17,7 @@
 		35F0A6DF242BFE6D00E90912 /* KLSCityAirQualityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6DE242BFE6D00E90912 /* KLSCityAirQualityModel.m */; };
 		35F0A6E2242BFF2900E90912 /* KLSWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E1242BFF2900E90912 /* KLSWeather.m */; };
 		35F0A6E5242C010300E90912 /* KLSPollution.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E4242C010300E90912 /* KLSPollution.m */; };
+		35F0A6E8242C0BB800E90912 /* KLSCityAirQualityController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E7242C0BB800E90912 /* KLSCityAirQualityController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		35F0A6E1242BFF2900E90912 /* KLSWeather.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSWeather.m; sourceTree = "<group>"; };
 		35F0A6E3242C010300E90912 /* KLSPollution.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLSPollution.h; sourceTree = "<group>"; };
 		35F0A6E4242C010300E90912 /* KLSPollution.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSPollution.m; sourceTree = "<group>"; };
+		35F0A6E6242C0BB800E90912 /* KLSCityAirQualityController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLSCityAirQualityController.h; sourceTree = "<group>"; };
+		35F0A6E7242C0BB800E90912 /* KLSCityAirQualityController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSCityAirQualityController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 		35F0A6DB242BFE3200E90912 /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
+				35F0A6E6242C0BB800E90912 /* KLSCityAirQualityController.h */,
+				35F0A6E7242C0BB800E90912 /* KLSCityAirQualityController.m */,
 			);
 			path = ModelController;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				35F0A6BE242BEB9400E90912 /* AppDelegate.m in Sources */,
 				35F0A6CF242BEB9700E90912 /* main.m in Sources */,
 				35F0A6E2242BFF2900E90912 /* KLSWeather.m in Sources */,
+				35F0A6E8242C0BB800E90912 /* KLSCityAirQualityController.m in Sources */,
 				35F0A6C1242BEB9400E90912 /* SceneDelegate.m in Sources */,
 				35F0A6DF242BFE6D00E90912 /* KLSCityAirQualityModel.m in Sources */,
 				35F0A6E5242C010300E90912 /* KLSPollution.m in Sources */,
