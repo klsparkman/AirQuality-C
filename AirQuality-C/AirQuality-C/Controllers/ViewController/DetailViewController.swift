@@ -1,15 +1,15 @@
 //
-//  CityDetailViewController.swift
-//  AirQuality ObjC
+//  DetailViewController.swift
+//  AirQuality-C
 //
-//  Created by RYAN GREENBURG on 11/21/19.
-//  Copyright © 2019 RYAN GREENBURG. All rights reserved.
+//  Created by Kelsey Sparkman on 3/25/20.
+//  Copyright © 2020 Kelsey Sparkman. All rights reserved.
 //
 
 import UIKit
 
 class CityDetailViewController: UIViewController {
-
+    
     // MARK: - Properties
     var country: String?
     var state: String?
@@ -32,23 +32,23 @@ class CityDetailViewController: UIViewController {
             let country = country
             else { return }
         
-        DVMCityAirQualityController.fetchData(forCity: city, state: state, country: country) { (cityDetails) in
+        KLSCityAirQualityController.fetchData(forCity: city, state: state, country: country) { (cityDetails) in
             if let details = cityDetails {
                 self.updateViews(with: details)
             }
         }
     }
-
+    
     // MARK: - Class Methods
-    func updateViews(with details: DVMCityAirQuality) {
+    func updateViews(with details: KLSCityAirQualityModel) {
         DispatchQueue.main.async {
-            self.cityNameLabel.text = details.city
-            self.stateLabel.text = details.state
-            self.countryLabel.text = details.country
-            self.aqiLabel.text = "\(details.pollution.airQualityIndex)"
-            self.windSpeedLabel.text = "\(details.weather.windSpeed)"
-            self.temperatureLabel.text = "\(details.weather.temperature)"
-            self.humidityLabel.text = "\(details.weather.humidity)"
+            self.cityNameLabel.text = "City: \(details.city)"
+            self.stateLabel.text = "State: \(details.state)"
+            self.countryLabel.text = "Country: \(details.country)"
+            self.aqiLabel.text = "Air Quality Index: \(details.pollution.airQualityIndexUS)"
+            self.windSpeedLabel.text = "Wind speed: \(details.weather.windSpeed)"
+            self.temperatureLabel.text = "Temperature: \(details.weather.temp)"
+            self.humidityLabel.text = "Humidity: \(details.weather.humidity)"
         }
     }
 }

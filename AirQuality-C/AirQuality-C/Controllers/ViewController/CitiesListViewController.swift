@@ -1,15 +1,14 @@
 //
 //  CitiesListViewController.swift
-//  AirQuality ObjC
+//  AirQuality-C
 //
-//  Created by RYAN GREENBURG on 11/21/19.
-//  Copyright © 2019 RYAN GREENBURG. All rights reserved.
+//  Created by Kelsey Sparkman on 3/25/20.
+//  Copyright © 2020 Kelsey Sparkman. All rights reserved.
 //
 
 import UIKit
 
 class CitiesListViewController: UIViewController {
-    
     // MARK: - Properties
     var state: String?
     var country: String?
@@ -18,10 +17,8 @@ class CitiesListViewController: UIViewController {
             updateTableView()
         }
     }
-
     // MARK: - Outlets
     @IBOutlet weak var tableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
@@ -29,13 +26,12 @@ class CitiesListViewController: UIViewController {
         guard let state = state,
             let country = country
             else { return }
-        DVMCityAirQualityController.fetchSupportedCities(inState: state, country: country) { (cities) in
+        KLSCityAirQualityController.fetchSupportedCities(inState: state, country: country) { (cities) in
             if let cities = cities {
                 self.cities = cities
             }
         }
     }
-    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toCityDetailsVC" {
@@ -44,14 +40,12 @@ class CitiesListViewController: UIViewController {
                 let state = state,
                 let destinationVC = segue.destination as? CityDetailViewController
                 else { return }
-            
             let selectedCity = cities[indexPath.row]
             destinationVC.city = selectedCity
             destinationVC.state = state
             destinationVC.country = country
         }
     }
-    
     // MARK: - Class Methods
     func updateTableView() {
         DispatchQueue.main.async {
@@ -59,12 +53,10 @@ class CitiesListViewController: UIViewController {
         }
     }
 }
-
 extension CitiesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cities.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityCell", for: indexPath)
         let city = cities[indexPath.row]

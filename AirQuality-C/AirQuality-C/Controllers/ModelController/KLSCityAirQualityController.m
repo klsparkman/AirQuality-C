@@ -1,13 +1,13 @@
 //
-//  DVMCityAirQualityController.m
-//  AirQuality ObjC
+//  KLSCityAirQualityController.m
+//  AirQuality-C
 //
-//  Created by RYAN GREENBURG on 11/21/19.
-//  Copyright © 2019 RYAN GREENBURG. All rights reserved.
+//  Created by Kelsey Sparkman on 3/25/20.
+//  Copyright © 2020 Kelsey Sparkman. All rights reserved.
 //
 
-#import "DVMCityAirQuality.h"
-#import "DVMCityAirQualityController.h"
+#import "KLSCityAirQualityController.h"
+#import "KLSCityAirQualityModel.h"
 
 static NSString *const baseURLString = @"https://api.airvisual.com/";
 static NSString *const version = @"v2";
@@ -15,9 +15,9 @@ static NSString *const countryComponent = @"countries";
 static NSString *const stateComponenet = @"states";
 static NSString *const cityComponent = @"cities";
 static NSString *const cityDetailsComponent = @"city";
-static NSString *const apiKey = @"2d50afec-b190-497d-9fbf-647cb91462b0";
+static NSString *const apiKey = @"e6a64fde-e9c7-4a95-9670-d85d18726a5a";
 
-@implementation DVMCityAirQualityController
+@implementation KLSCityAirQualityController
 
 + (void)fetchSupportedCountries:(void (^)(NSArray<NSString *> * _Nullable))completion
 {
@@ -138,37 +138,37 @@ static NSString *const apiKey = @"2d50afec-b190-497d-9fbf-647cb91462b0";
     [urlComponents setQueryItems:queryItems];
     
     NSURL *finalURL = [urlComponents URL];
-    
+   
     [[[NSURLSession sharedSession] dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        
-        if (error)
-        {
-            NSLog(@"There was an error in %s: %@, %@", __PRETTY_FUNCTION__, error, [error localizedDescription]);
-            completion(nil);
-            return;
-        }
-        
-        if (response)
-        {
-            NSLog(@"%@", response);
-        }
-        
-        if (data)
-        {
-            NSDictionary *topLevel = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSDictionary *dataDict = topLevel[@"data"];
-            NSMutableArray *cities = [NSMutableArray new];
-            for (NSDictionary *cityDict in dataDict)
+            
+            if (error)
             {
-                NSString *city = cityDict[@"city"];
-                [cities addObject:city];
+                NSLog(@"There was an error in %s: %@, %@", __PRETTY_FUNCTION__, error, [error localizedDescription]);
+                completion(nil);
+                return;
             }
-            completion(cities);
-        }
-    }] resume];
-}
+            
+            if (response)
+            {
+                NSLog(@"%@", response);
+            }
+            
+            if (data)
+            {
+                NSDictionary *topLevel = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                NSDictionary *dataDict = topLevel[@"data"];
+                NSMutableArray *cities = [NSMutableArray new];
+                for (NSDictionary *cityDict in dataDict)
+                {
+                    NSString *city = cityDict[@"city"];
+                    [cities addObject:city];
+                }
+                completion(cities);
+            }
+        }] resume];
+    }
 
-+ (void)fetchDataForCity:(NSString *)city state:(NSString *)state country:(NSString *)country completion:(void (^)(DVMCityAirQuality * _Nullable))completion
++ (void)fetchDataForCity:(NSString *)city state:(NSString *)state country:(NSString *)country completion:(void (^)(KLSCityAirQualityModel * _Nullable))completion
 {
     
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
@@ -188,34 +188,37 @@ static NSString *const apiKey = @"2d50afec-b190-497d-9fbf-647cb91462b0";
     [queryItems addObject:apiKeyQuery];
     
     NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:cityURL resolvingAgainstBaseURL:true];
-    
-    [urlComponents setQueryItems:queryItems];
-    
-    NSURL *finalURL = [urlComponents URL];
-    
-    [[[NSURLSession sharedSession] dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
-        if (error)
-        {
-            NSLog(@"There was an error in %s: %@, %@", __PRETTY_FUNCTION__, error, [error localizedDescription]);
-            completion(nil);
-            return;
-        }
+        [urlComponents setQueryItems:queryItems];
         
-        if (response)
-        {
-            NSLog(@"%@", response);
-        }
+        NSURL *finalURL = [urlComponents URL];
         
-        if (data)
-        {
-            NSDictionary *topLevel = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            NSDictionary *dataDict = topLevel[@"data"];
+        [[[NSURLSession sharedSession] dataTaskWithURL:finalURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             
-            DVMCityAirQuality *cityAQI = [[DVMCityAirQuality alloc] initWithDictionary:dataDict];
-            completion(cityAQI);
-        }
-    }] resume];
-}
+            if (error)
+            {
+                NSLog(@"There was an error in %s: %@, %@", __PRETTY_FUNCTION__, error, [error localizedDescription]);
+                completion(nil);
+                return;
+            }
+            
+            if (response)
+            {
+                NSLog(@"%@", response);
+            }
+            
+            if (data)
+            {
+                NSDictionary *topLevel = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                NSDictionary *dataDictionary = topLevel[@"data"];
+                
+               // NSLog(dataDict);
+                
+                KLSCityAirQualityModel *cityAQI = [[KLSCityAirQualityModel alloc] initWithDictionary:dataDictionary];
+                completion(cityAQI);
+               // NSLog(cityAQI);
+            }
+        }] resume];
+    }
 
 @end

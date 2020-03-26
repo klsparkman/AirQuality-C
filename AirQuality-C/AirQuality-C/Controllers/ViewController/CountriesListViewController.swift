@@ -1,59 +1,54 @@
 //
-//  CountryListViewController.swift
-//  AirQuality ObjC
+//  CountriesListViewController.swift
+//  AirQuality-C
 //
-//  Created by RYAN GREENBURG on 11/21/19.
-//  Copyright © 2019 RYAN GREENBURG. All rights reserved.
+//  Created by Kelsey Sparkman on 3/25/20.
+//  Copyright © 2020 Kelsey Sparkman. All rights reserved.
 //
 
 import UIKit
 
-class CountryListViewController: UIViewController {
-    // MARK: - Properties
+class CountriesListViewController: UIViewController {
+    
     var countries: [String] = [] {
         didSet {
             updateTableView()
         }
     }
-
-    // MARK: - Outlets
-    @IBOutlet weak var tableView: UITableView!
     
-    // MARK: - Lifecycle
+    @IBOutlet weak var countryTableView: UITableView!
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        DVMCityAirQualityController.fetchSupportedCountries { (countries) in
+        countryTableView.delegate = self
+        countryTableView.dataSource = self
+        KLSCityAirQualityController.fetchSupportedCountries { (countries) in
             if let countries = countries {
                 self.countries = countries
             }
         }
     }
-    
-    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toStatesVC" {
-            guard let indexPath = tableView.indexPathForSelectedRow,
+        if segue.identifier == "toStateVC" {
+            guard let indexPath = countryTableView.indexPathForSelectedRow,
                 let destinationVC = segue.destination as? StatesListViewController
-                else { return }
+                else {return}
             
             let selectedCountry = countries[indexPath.row]
-            
             destinationVC.country = selectedCountry
         }
     }
-    
-    // MARK: - Class Method
+
     func updateTableView() {
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.countryTableView.reloadData()
         }
     }
+
 }
 
-// MARK: - TableView DataSource/Delegate
-extension CountryListViewController : UITableViewDelegate, UITableViewDataSource {
+extension CountriesListViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
     }
