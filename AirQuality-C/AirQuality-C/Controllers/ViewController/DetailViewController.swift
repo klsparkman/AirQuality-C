@@ -35,20 +35,20 @@ class CityDetailViewController: UIViewController {
         KLSCityAirQualityController.fetchData(forCity: city, state: state, country: country) { (cityDetails) in
             if let details = cityDetails {
                 self.updateViews(with: details)
-        }
+            }
         }
     }
     
     // MARK: - Class Methods
     func updateViews(with details: KLSCityAirQualityModel) {
         DispatchQueue.main.async {
-            self.cityNameLabel.text = details.city
-            self.stateLabel.text = details.state
-            self.countryLabel.text = details.country
-            self.aqiLabel.text = "\(details.pollution.airQualityIndexUS)"
-            self.windSpeedLabel.text = "\(details.weather.windSpeed)"
-            self.temperatureLabel.text = "\(details.weather.temp)"
-            self.humidityLabel.text = "\(details.weather.humidity)"
+            self.cityNameLabel.text = "City: \(details.city)"
+            self.stateLabel.text = "State: \(details.state)"
+            self.countryLabel.text = "Country: \(details.country)"
+            self.aqiLabel.text = "Air Quality Index: \(details.pollution.airQualityIndexUS)"
+            self.windSpeedLabel.text = "Wind speed: \(details.weather.windSpeed)"
+            self.temperatureLabel.text = "Temperature: \(details.weather.temp)"
+            self.humidityLabel.text = "Humidity: \(details.weather.humidity)"
         }
     }
 }

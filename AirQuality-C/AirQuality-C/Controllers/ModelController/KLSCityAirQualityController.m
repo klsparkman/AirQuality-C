@@ -210,10 +210,13 @@ static NSString *const apiKey = @"e6a64fde-e9c7-4a95-9670-d85d18726a5a";
             if (data)
             {
                 NSDictionary *topLevel = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-                NSDictionary *dataDict = topLevel[@"data"];
+                NSDictionary *dataDictionary = topLevel[@"data"];
                 
-                KLSCityAirQualityModel *cityAQI = [[KLSCityAirQualityModel alloc] initWithDictionary:dataDict];
+               // NSLog(dataDict);
+                
+                KLSCityAirQualityModel *cityAQI = [[KLSCityAirQualityModel alloc] initWithDictionary:dataDictionary];
                 completion(cityAQI);
+               // NSLog(cityAQI);
             }
         }] resume];
     }

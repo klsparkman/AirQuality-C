@@ -13,7 +13,6 @@
 		35F0A6C9242BEB9700E90912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35F0A6C8242BEB9700E90912 /* Assets.xcassets */; };
 		35F0A6CC242BEB9700E90912 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35F0A6CA242BEB9700E90912 /* LaunchScreen.storyboard */; };
 		35F0A6CF242BEB9700E90912 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6CE242BEB9700E90912 /* main.m */; };
-		35F0A6D9242BED2900E90912 /* KLSHelperInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6D8242BED2900E90912 /* KLSHelperInfo.m */; };
 		35F0A6DF242BFE6D00E90912 /* KLSCityAirQualityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6DE242BFE6D00E90912 /* KLSCityAirQualityModel.m */; };
 		35F0A6E2242BFF2900E90912 /* KLSWeather.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E1242BFF2900E90912 /* KLSWeather.m */; };
 		35F0A6E5242C010300E90912 /* KLSPollution.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F0A6E4242C010300E90912 /* KLSPollution.m */; };
@@ -35,8 +34,6 @@
 		35F0A6CB242BEB9700E90912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35F0A6CD242BEB9700E90912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35F0A6CE242BEB9700E90912 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		35F0A6D7242BED2900E90912 /* KLSHelperInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLSHelperInfo.h; sourceTree = "<group>"; };
-		35F0A6D8242BED2900E90912 /* KLSHelperInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSHelperInfo.m; sourceTree = "<group>"; };
 		35F0A6DD242BFE6D00E90912 /* KLSCityAirQualityModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLSCityAirQualityModel.h; sourceTree = "<group>"; };
 		35F0A6DE242BFE6D00E90912 /* KLSCityAirQualityModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KLSCityAirQualityModel.m; sourceTree = "<group>"; };
 		35F0A6E0242BFF2900E90912 /* KLSWeather.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KLSWeather.h; sourceTree = "<group>"; };
@@ -63,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		359147C6242D493E00E03ACA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35F0A6C5242BEB9400E90912 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		35F0A6B0242BEB9300E90912 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +87,10 @@
 		35F0A6BB242BEB9400E90912 /* AirQuality-C */ = {
 			isa = PBXGroup;
 			children = (
-				35F0A6DA242BFE2B00E90912 /* Controllers */,
 				35F0A6D6242BEBD100E90912 /* Model */,
+				359147C6242D493E00E03ACA /* Views */,
+				35F0A6DA242BFE2B00E90912 /* Controllers */,
 				35F0A6D5242BEBA300E90912 /* Resources */,
-				35F0A6C5242BEB9400E90912 /* Main.storyboard */,
 			);
 			path = "AirQuality-C";
 			sourceTree = "<group>";
@@ -101,8 +106,6 @@
 				35F0A6CA242BEB9700E90912 /* LaunchScreen.storyboard */,
 				35F0A6CD242BEB9700E90912 /* Info.plist */,
 				35F0A6CE242BEB9700E90912 /* main.m */,
-				35F0A6D7242BED2900E90912 /* KLSHelperInfo.h */,
-				35F0A6D8242BED2900E90912 /* KLSHelperInfo.m */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -222,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35F0A6D9242BED2900E90912 /* KLSHelperInfo.m in Sources */,
 				35F0A6BE242BEB9400E90912 /* AppDelegate.m in Sources */,
 				35F0A6CF242BEB9700E90912 /* main.m in Sources */,
 				35F0A6F1242C193300E90912 /* DetailViewController.swift in Sources */,

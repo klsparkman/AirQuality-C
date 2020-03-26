@@ -35,7 +35,7 @@
     NSInteger windSpeed = [dictionary[@"ws"] intValue];
     NSInteger windDirection = [dictionary[@"wd"] intValue];
     NSInteger humidity = [dictionary[@"hu"] intValue];
-    NSString *iconCode = [dictionary[@"ic"] stringValue];
+    NSString *iconCode = dictionary[@"ic"];
     
     return [self initWithTemp:temp windSpeed:windSpeed windDirection:windDirection humidity:humidity iconCode:iconCode];
     }
